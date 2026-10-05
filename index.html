@@ -1,597 +1,542 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>José Tomás | Automation & Software Architect</title>
-    <meta name="description" content="Automatización industrial, software a medida, Power Automate, PLC, Klipper y soluciones maker. Diseño sistemas inteligentes que eliminan trabajo repetitivo." />
-    <meta name="keywords" content="automatización industrial, PLC, Siemens, TIA Portal, Klipper, 3D printing, Power Automate, Python, JavaScript, Odoo, SCADA, robótica, IoT" />
-    <meta name="author" content="José Tomás Milla Martinez" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
-    <!-- Open Graph -->
-    <meta property="og:title" content="José Tomás | Automation & Software Architect" />
-    <meta property="og:description" content="Automatización industrial, software a medida, Power Automate, PLC, Klipper y soluciones maker." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://joseto1298.github.io/" />
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/85197083" />
-    <style>
-      :root {
-        --bg: #07111f;
-        --bg-soft: #0d1b2e;
-        --card: #10243d;
-        --text: #eef5ff;
-        --muted: #9fb3c8;
-        --accent: #22d3ee;
-        --accent-2: #7c3aed;
-        --line: rgba(255,255,255,.1);
-        --white: #ffffff;
-      }
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>José Tomás | Automation & Software Architect</title>
+<meta name="description" content="Automatización industrial, software a medida, Power Automate, PLC, Klipper y soluciones maker. Diseño sistemas inteligentes que eliminan trabajo repetitivo." />
+<meta name="keywords" content="automatización industrial, PLC, Siemens, TIA Portal, Klipper, 3D printing, Power Automate, Python, JavaScript, Odoo, SCADA, robótica, IoT" />
+<meta name="author" content="José Tomás Milla Martinez" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E" />
+<meta property="og:title" content="José Tomás | Automation & Software Architect" />
+<meta property="og:description" content="Automatización industrial, software a medida, Power Automate, PLC, Klipper y soluciones maker." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://joseto1298.github.io/" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/85197083" />
+<style>
+  :root {
+    --bg: #0a0e14;
+    --surface: rgba(255,255,255,.02);
+    --surface-card: rgba(255,255,255,.03);
+    --surface-elevated: rgba(255,255,255,.035);
+    --text: #f8f9fa;
+    --text-secondary: #b9c0cc;
+    --text-muted: #7f8590;
+    --accent: #22d3ee;
+    --accent-soft: rgba(34,211,238,.08);
+    --border: rgba(255,255,255,.06);
+    --border-subtle: rgba(255,255,255,.04);
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 18px;
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+  }
 
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      body {
-        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: radial-gradient(circle at top right, rgba(34,211,238,.16), transparent 35%), var(--bg);
-        color: var(--text);
-        line-height: 1.6;
-      }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-      a { color: inherit; text-decoration: none; }
-      .container { width: min(1120px, 92%); margin: auto; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        backdrop-filter: blur(16px);
-        background: rgba(7,17,31,.75);
-        border-bottom: 1px solid var(--line);
-      }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
 
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 18px 0;
-      }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
 
-      .logo {
-        font-weight: 800;
-        letter-spacing: -.04em;
-        font-size: 1.15rem;
-      }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+  }
 
-      .logo span { color: var(--accent); }
+  ::selection { background: var(--accent-soft); color: var(--text); }
 
-      .nav-links {
-        display: flex;
-        gap: 24px;
-        font-size: .95rem;
-        color: var(--muted);
-      }
+  a { color: inherit; text-decoration: none; transition: color .2s ease; }
+  a:hover { color: var(--accent); }
 
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        background: none;
-        border: 0;
-        cursor: pointer;
-        padding: 4px;
-      }
-      .hamburger span {
-        display: block;
-        width: 24px;
-        height: 2px;
-        background: var(--text);
-        border-radius: 2px;
-        transition: transform .25s, opacity .25s;
-      }
-      .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      .hamburger.active span:nth-child(2) { opacity: 0; }
-      .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  img, video { max-width: 100%; height: auto; display: block; }
 
-      .mobile-menu {
-        display: none;
-        flex-direction: column;
-        gap: 18px;
-        padding: 24px 0;
-        font-size: 1rem;
-        color: var(--muted);
-        border-top: 1px solid var(--line);
-      }
-      .mobile-menu.open { display: flex; }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
 
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 18px;
-        border-radius: 999px;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: var(--white);
-        font-weight: 700;
-        border: 0;
-        box-shadow: 0 12px 35px rgba(34,211,238,.18);
-      }
+  .container { width: min(1080px, 92%); margin-inline: auto; }
 
-      .btn.secondary {
-        background: transparent;
-        border: 1px solid var(--line);
-        box-shadow: none;
-        color: var(--text);
-      }
+  /* Header - Apple-style sticky, translucent */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    background: rgba(10,14,20,.72);
+    border-bottom: 1px solid var(--border-subtle);
+  }
 
-      .btn.github {
-        background: transparent;
-        border: 1px solid var(--line);
-        box-shadow: none;
-        color: var(--text);
-        font-size: .9rem;
-        padding: 8px 14px;
-      }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+  }
 
-      .hero {
-        padding: 96px 0 72px;
-        display: grid;
-        grid-template-columns: 1.2fr .8fr;
-        gap: 48px;
-        align-items: center;
-      }
+  .logo {
+    font-weight: 800;
+    letter-spacing: -.04em;
+    font-size: 1.25rem;
+    color: var(--text);
+  }
+  .logo span { color: var(--accent); }
 
-      .eyebrow {
-        color: var(--accent);
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: .12em;
-        font-size: .8rem;
-        margin-bottom: 16px;
-      }
+  .nav-links {
+    display: flex; gap: 32px;
+    font-size: .95rem; font-weight: 500;
+    color: var(--text-secondary);
+  }
+  .nav-links a { position: relative; padding-bottom: 2px; }
+  .nav-links a::after {
+    content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+  }
+  .nav-links a:hover::after { transform: scaleX(1); }
 
-      h1 {
-        font-size: clamp(2.7rem, 6vw, 5.8rem);
-        line-height: .95;
-        letter-spacing: -.07em;
-        margin-bottom: 26px;
-      }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: 0; cursor: pointer; padding: 6px;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 1.5px; background: var(--text); border-radius: 2px;
+    transition: transform .25s ease, opacity .25s ease;
+  }
+  .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-      .hero p {
-        color: var(--muted);
-        font-size: 1.2rem;
-        max-width: 680px;
-        margin-bottom: 30px;
-      }
+  .mobile-menu {
+    display: none; flex-direction: column; gap: 24px;
+    padding: 24px 0 32px; border-top: 1px solid var(--border-subtle);
+    font-size: 1.05rem; font-weight: 500; color: var(--text-secondary);
+  }
+  .mobile-menu.open { display: flex; animation: slideDown .25s ease; }
 
-      .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-      .tech-panel {
-        position: relative;
-        border: 1px solid var(--line);
-        background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
-        border-radius: 30px;
-        padding: 28px;
-        overflow: hidden;
-        min-height: 420px;
-      }
+  /* Hero - editorial, spacious */
+  .hero {
+    padding: 132px 0 108px; position: relative;
+    display: grid; grid-template-columns: 1.2fr .88fr; gap: 72px; align-items: center;
+  }
 
-      .tech-panel:before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
-        background-size: 36px 36px;
-        mask-image: linear-gradient(to bottom, black, transparent 88%);
-        opacity: .5;
-      }
+  .hero::before {
+    content: ""; position: absolute; top: -15%; right: -12%; width: 480px; height: 480px;
+    background: radial-gradient(120% 120% at 50% 30%, rgba(34,211,238,.05) 0%, transparent 65%); pointer-events: none; z-index: 0;
+  }
 
-      .node {
-        position: relative;
-        background: rgba(16,36,61,.82);
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 18px;
-        margin-bottom: 16px;
-        z-index: 1;
-      }
+  .eyebrow {
+    display: inline-block; color: var(--accent); font-weight:700; font-size: .78rem;
+    text-transform: uppercase; letter-spacing: .14em; margin-bottom: 22px;
+  }
 
-      .node strong { display: block; margin-bottom: 4px; }
-      .node span { color: var(--muted); font-size: .92rem; }
+  h1 {
+    font-size: clamp(3.2rem, 8vw, 6.5rem); line-height: 1.01; letter-spacing: -.07em;
+    font-weight: 800; margin-bottom: 24px; color: var(--text);
+  }
+  h1 .accent-word { color: var(--accent); }
+  h2 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.04; letter-spacing: -.055em;
+    font-weight: 800; margin-bottom: 18px; color: var(--text);
+  }
 
-      section { padding: 72px 0; }
-      .section-title { max-width: 760px; margin-bottom: 36px; }
-      .section-title h2 {
-        font-size: clamp(2rem, 4vw, 3.3rem);
-        line-height: 1;
-        letter-spacing: -.05em;
-        margin-bottom: 18px;
-      }
-      .section-title p { color: var(--muted); font-size: 1.08rem; }
+  .hero p {
+    color: var(--text-secondary); font-size: clamp(1rem, 1.1vw, 1.15rem); max-width: 560px; line-height: 1.52; margin-bottom: 36px;
+  }
 
-      .grid-4 {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 18px;
-      }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
-      .card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        padding: 24px;
-      }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 24px; border-radius: 999px; font-weight: 600; font-size: .95rem;
+    border: 1px solid var(--border); background: var(--surface-elevated); color: var(--text);
+    transition: background .2s ease, border-color .2s ease, transform .15s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,.25);
+  }
+  .btn:hover { background: var(--surface-card); border-color: rgba(255,255,255,.14); transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
 
-      .card h3 { margin-bottom: 12px; font-size: 1.2rem; }
-      .card p, .card li { color: var(--muted); }
-      .card ul { list-style: none; display: grid; gap: 8px; }
-      .card li:before { content: "→ "; color: var(--accent); }
+  .btn.secondary {
+    background: transparent;
+    color: var(--text);
+  }
 
-      .split {
-        display: grid;
-        grid-template-columns: .9fr 1.1fr;
-        gap: 28px;
-        align-items: stretch;
-      }
+  .btn.secondary:hover { background: var(--surface); border-color: var(--border); }
 
-      .project {
-        display: grid;
-        gap: 10px;
-        padding: 24px 0;
-        border-bottom: 1px solid var(--line);
-      }
+  /* Glass panel - subtle */
+  .tech-panel {
+    position: relative; z-index: 1;
+    border: 1px solid var(--border-subtle);
+    background: rgba(255,255,255,.04);
+    border-radius: var(--radius-lg); padding: 32px; overflow: hidden;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    min-height: 420px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .tech-panel::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); pointer-events: none;
+  }
 
-      .project:last-child { border-bottom: 0; }
-      .tagline { color: var(--accent); font-weight: 700; font-size: .9rem; }
-      .project-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        color: var(--accent);
-        font-size: .9rem;
-        font-weight: 600;
-        transition: opacity .2s;
-      }
-      .project-link:hover { opacity: .7; }
+  .node {
+    position: relative; z-index: 1;
+    background: rgba(255,255,255,.045); border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm); padding: 20px 22px; transition: background .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .node:hover { background: rgba(255,255,255,.065); border-color: rgba(255,255,255,.12); transform: translateY(-2px); }
+  .node strong { display: block; font-weight: 600; font-size: 1.05rem; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .node span { color: var(--text-secondary); font-size: .92rem; line-height: 1.45; }
 
-      .lab-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
-      }
+  /* Sections - Apple editorial spacing */
+  section { padding: clamp(80px, 12vw, 140px) 0; position: relative; }
 
-      .lab-card {
-        min-height: 220px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
+  .section-title { max-width: 720px; margin-bottom: 48px; }
+  .section-title h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.04; letter-spacing: -.05em;
+    font-weight: 800; margin-bottom: 16px; color: var(--text);
+  }
+  .section-title p { color: var(--text-secondary); font-size: clamp(.95rem, 1vw, 1.05rem); line-height: 1.55; }
 
-      .number {
-        font-size: 2.4rem;
-        color: var(--accent);
-        font-weight: 900;
-        letter-spacing: -.05em;
-      }
+  /* Grid cards - subtle */
+  .grid-4 {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .card {
+    background: var(--surface-card); border: 1px solid var(--border);
+    border-radius: var(--radius-md); padding: 28px;
+    transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  }
+  .card:hover { background: var(--surface); border-color: rgba(255,255,255,.14); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.28); }
+  .card h3 { margin-bottom: 14px; font-weight: 700; font-size: 1.18rem; letter-spacing: -0.02em; color: var(--text); }
+  .card p, .card li { color: var(--text-secondary); font-size: .95rem; line-height: 1.45; }
+  .card ul { list-style: none; display: grid; gap: 10px; }
+  .card li { position: relative; padding-left: 18px; }
+  .card li::before { content: "·"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 700; font-size: 1.1rem; line-height: 1.2; }
 
-      .cta {
-        text-align: center;
-        background: linear-gradient(135deg, rgba(34,211,238,.14), rgba(124,58,237,.16));
-        border: 1px solid var(--line);
-        border-radius: 36px;
-        padding: 56px 24px;
-      }
+  /* Split - projects editorial */
+  .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; }
 
-      .cta h2 {
-        font-size: clamp(2rem, 4vw, 3.5rem);
-        line-height: 1;
-        letter-spacing: -.05em;
-        margin-bottom: 18px;
-      }
+  .project {
+    padding: clamp(24px, 4vw, 32px) 0; border-bottom: 1px solid var(--border-subtle);
+    transition: background .2s ease;
+  }
+  .project:last-child { border-bottom: 0; }
+  .project:hover { background: var(--surface-card); }
+  .tagline { color: var(--accent); font-weight: 700; font-size: .82rem; letter-spacing: .02em; margin-bottom: 6px; }
+  .project h3 { font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .project p { color: var(--text-secondary); font-size: .95rem; line-height: 1.55; max-width: 560px; }
+  .project-link {
+    display: inline-flex; align-items: center; gap: 6px; color: var(--accent);
+    font-weight: 600; font-size: .9rem; margin-top: 12px; transition: gap .2s ease;
+  }
+  .project-link:hover { gap: 10px; }
 
-      .cta p { color: var(--muted); max-width: 660px; margin: 0 auto 28px; }
-      .cta-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  /* Lab grid */
+  .lab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .lab-card { min-height: 220px; display: flex; flex-direction: column; justify-content: space-between; }
+  .lab-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.28); }
+  .number { font-size: 2.8rem; font-weight: 800; color: var(--accent); letter-spacing: -.06em; line-height: 1; margin-bottom: 16px; opacity: .95; }
 
-      footer {
-        padding: 34px 0;
-        color: var(--muted);
-        border-top: 1px solid var(--line);
-        font-size: .95rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
+  /* CTA - minimal editorial */
+  .cta {
+    text-align: center; background: linear-gradient(160deg, rgba(34,211,238,.08), rgba(124,58,237,.08));
+    border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 80px 28px;
+  }
+  .cta h2 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.04; letter-spacing: -.05em; font-weight: 800; margin-bottom: 18px; }
+  .cta p { color: var(--text-secondary); max-width: 680px; margin: 0 auto 36px; font-size: clamp(.95rem, 1vw, 1rem); line-height: 1.55; }
+  .cta-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-      footer a { color: var(--accent); font-weight: 600; }
-      footer a:hover { opacity: .7; }
+  /* Footer */
+  footer {
+    padding: 40px 0; color: var(--text-muted); border-top: 1px solid var(--border-subtle);
+    font-size: .9rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  footer a { color: var(--accent); font-weight: 600; }
+  footer a:hover { opacity: .85; }
 
-      @media (max-width: 900px) {
-        .hero, .split { grid-template-columns: 1fr; }
-        .grid-4, .lab-grid { grid-template-columns: 1fr 1fr; }
-        .nav-links { display: none; }
-        .hamburger { display: flex; }
-        footer { flex-direction: column; text-align: center; }
-      }
+  /* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+  @media (max-width: 980px) {
+    .hero { grid-template-columns: 1fr; gap: 56px; padding: 80px 0 72px; }
+    .hero::before { width: 280px; height: 280px; top: -8%; right: -15%; }
+    .split { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (max-width: 880px) {
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+    .lab-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .grid-4, .lab-grid { grid-template-columns: 1fr; }
+    .hero { padding-top: 72px; }
+    section { padding: 64px 0; }
+    .cta { padding: 56px 20px; }
+    .tech-panel { padding: 24px 20px; min-height: auto; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
 
-      @media (max-width: 620px) {
-        .grid-4, .lab-grid { grid-template-columns: 1fr; }
-        .hero { padding-top: 64px; }
-        .tech-panel { min-height: auto; }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <nav>
-          <a href="#" class="logo">José Tomás<span>.</span></a>
-          <div class="nav-links">
-            <a href="#servicios">Servicios</a>
-            <a href="#proyectos">Proyectos</a>
-            <a href="#lab">Lab</a>
-            <a href="#contacto">Contacto</a>
-            <a href="https://github.com/joseto1298" target="_blank" rel="noopener">GitHub</a>
-          </div>
-          <button class="hamburger" id="menuBtn" aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </nav>
-        <div class="mobile-menu" id="mobileMenu">
-          <a href="#servicios">Servicios</a>
-          <a href="#proyectos">Proyectos</a>
-          <a href="#lab">Lab</a>
-          <a href="#contacto">Contacto</a>
-          <a href="https://github.com/joseto1298" target="_blank" rel="noopener">GitHub</a>
-        </div>
+<body>
+<header role="banner">
+  <div class="container">
+    <nav aria-label="Principal">
+      <a href="#" class="logo">José Tomás<span>.</span></a>
+      <div class="nav-links" role="menubar">
+        <a href="#servicios" role="menuitem">Servicios</a>
+        <a href="#proyectos" role="menuitem">Proyectos</a>
+        <a href="#lab" role="menuitem">Lab</a>
+        <a href="#contacto" role="menuitem">Contacto</a>
+        <a href="https://github.com/joseto1298" target="_blank" rel="noopener noreferrer" role="menuitem">GitHub</a>
       </div>
-    </header>
+      <button class="hamburger" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu" role="menu" aria-label="Navegación móvil">
+      <a href="#servicios" role="menuitem">Servicios</a>
+      <a href="#proyectos" role="menuitem">Proyectos</a>
+      <a href="#lab" role="menuitem">Lab</a>
+      <a href="#contacto" role="menuitem">Contacto</a>
+      <a href="https://github.com/joseto1298" target="_blank" rel="noopener noreferrer" role="menuitem">GitHub</a>
+    </div>
+  </div>
+</header>
 
-    <main>
-      <section class="container hero">
+<main>
+  <section class="container hero reveal" aria-label="Presentación">
+    <div>
+      <div class="eyebrow">Automation & Software Architect</div>
+      <h1>Automatizo procesos, diseño <span class="accent-word">software</span> y conecto sistemas.</h1>
+      <p>
+        Combino automatización industrial, desarrollo de software y herramientas como Power Automate, Python y APIs para crear soluciones que reducen tiempos operativos, eliminan tareas repetitivas y hacen que los sistemas trabajen por ti.
+      </p>
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn">Ver proyectos</a>
+        <a href="#contacto" class="btn secondary">Hablemos</a>
+      </div>
+    </div>
+
+    <aside class="tech-panel" aria-label="Áreas de especialización">
+      <article class="node" aria-label="Power Automate y Microsoft 365">
+        <strong>Power Automate & M365</strong>
+        <span>Flujos automatizados, formularios, notificaciones, SharePoint y ecosistema Microsoft 365.</span>
+      </article>
+      <article class="node" aria-label="Software y Odoo">
+        <strong>Software & Odoo</strong>
+        <span>Web apps, dashboards, APIs, integraciones y módulos a medida.</span>
+      </article>
+      <article class="node" aria-label="PLC y SCADA">
+        <strong>PLC & SCADA</strong>
+        <span>Siemens S7, TIA Portal, Omron, RobotStudio, control PID y sistemas industriales.</span>
+      </article>
+      <article class="node" aria-label="Klipper y 3D Printing">
+        <strong>Klipper & 3D Printing</strong>
+        <span>Macros, plugins, sensores, control de impresoras y ecosistema maker.</span>
+      </article>
+    </aside>
+  </section>
+
+  <section class="container reveal" id="servicios" aria-label="Servicios">
+    <div class="section-title">
+      <h2>No desarrollo solo código. Diseño soluciones completas.</h2>
+      <p>La tecnología tiene sentido cuando resuelve un proceso real. Mi trabajo combina análisis, arquitectura técnica, automatización e implementación.</p>
+    </div>
+
+    <div class="grid-4" role="list" aria-label="Áreas de servicio">
+      <article class="card" role="listitem" aria-label="Power Automate y M365">
+        <h3>Power Automate & M365</h3>
+        <ul>
+          <li>Flujos automatizados</li>
+          <li>Formularios y notificaciones</li>
+          <li>SharePoint y OneDrive</li>
+          <li>Automatización documental</li>
+        </ul>
+      </article>
+      <article class="card" role="listitem" aria-label="Software y APIs">
+        <h3>Software & APIs</h3>
+        <ul>
+          <li>Web apps y dashboards</li>
+          <li>APIs e integraciones</li>
+          <li>Módulos Odoo</li>
+          <li>Scripts Python</li>
+        </ul>
+      </article>
+      <article class="card" role="listitem" aria-label="Automatización Industrial">
+        <h3>Automatización Industrial</h3>
+        <ul>
+          <li>PLC Siemens & Omron</li>
+          <li>TIA Portal & STEP 7</li>
+          <li>SCADA y WinCC</li>
+          <li>Control PID</li>
+        </ul>
+      </article>
+      <article class="card" role="listitem" aria-label="Klipper y 3D Printing">
+        <h3>Klipper & 3D Printing</h3>
+        <ul>
+          <li>Macros y plugins</li>
+          <li>Sensores y control</li>
+          <li>Monitoreo en tiempo real</li>
+          <li>Detección de fallos</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="container split reveal" id="proyectos" aria-label="Proyectos">
+    <div class="section-title">
+      <h2>Proyectos.</h2>
+      <p>Soluciones reales con código abierto. Cada proyecto resuelve un problema concreto.</p>
+    </div>
+
+    <div class="card" role="region" aria-label="Lista de proyectos">
+      <article class="project" aria-label="Klipper PLR Resume">
+        <span class="tagline">Klipper / 3D Printing</span>
+        <h3>Klipper-PLR-Resume</h3>
+        <p>Sistema completo para la recuperación automática y manual de impresiones 3D interrumpidas en Klipper. Macros de Klipper y script de generación de archivo de recuperación optimizado.</p>
+        <a class="project-link" href="https://github.com/joseto1298/Klipper-PLR-Resume" target="_blank" rel="noopener noreferrer">Ver en GitHub <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="project" aria-label="PID Nivel Tanque S7-1500">
+        <span class="tagline">Automatización Industrial</span>
+        <h3>PID Nivel Tanque S7-1500</h3>
+        <p>Control PID de nivel para tanque de agua con PLC Siemens S7-1500, TIA Portal V20 y simulación en FactoryIO. Algoritmo PID_Compact para control robusto.</p>
+        <a class="project-link" href="https://github.com/joseto1298/PID-Nivel-Tanque-S7-1500-FactoryIO" target="_blank" rel="noopener noreferrer">Ver en GitHub <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="project" aria-label="Integración Spoolman-Odoo">
+        <span class="tagline">Software & Odoo</span>
+        <h3>Integración Spoolman-Odoo</h3>
+        <p>Módulo Odoo que sincroniza el inventario de filamentos de Spoolman con el sistema de gestión de productos, manteniendo datos actualizados entre ambos sistemas.</p>
+        <a class="project-link" href="https://github.com/joseto1298/Integrating-Spoolman-inventory-into-Odoo" target="_blank" rel="noopener noreferrer">Ver en GitHub <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="project" aria-label="Klipper Spool Tracker">
+        <span class="tagline">IoT & Sensores</span>
+        <h3>Klipper Spool Tracker</h3>
+        <p>Mide el filamento que gastas en Klipper vía WebSocket de Moonraker. Persiste en SQLite con checkpoint cada 30s, soporta cambios en medio de una impresión.</p>
+        <a class="project-link" href="https://github.com/joseto1298/klipper_spool_tracker" target="_blank" rel="noopener noreferrer">Ver en GitHub <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </section>
+
+  <section class="container reveal" id="lab" aria-label="Laboratorio">
+    <div class="section-title">
+      <h2>Lab: construir, probar, aprender y compartir.</h2>
+      <p>Experimentos y herramientas del ecosistema Klipper, automatización y software aplicado.</p>
+    </div>
+
+    <div class="lab-grid" role="list" aria-label="Experimentos del lab">
+      <article class="card lab-card" role="listitem" aria-label="Control de impresora remoto">
+        <div class="number" aria-label="Experimento 1">01</div>
         <div>
-          <div class="eyebrow">Automation & Software Architect</div>
-          <h1>Automatizo procesos, diseño software y conecto sistemas.</h1>
-          <p>
-            Combino automatización industrial, desarrollo de software y
-            herramientas como Power Automate, Python y APIs para crear
-            soluciones que reducen tiempos operativos, eliminan tareas
-            repetitivas y hacen que los sistemas trabajen por ti.
-          </p>
-          <div class="hero-actions">
-            <a href="#proyectos" class="btn">Ver proyectos</a>
-            <a href="#contacto" class="btn secondary">Hablemos</a>
-          </div>
+          <h3>Control de impresora remoto</h3>
+          <p>Encendido y apagado de impresora 3D con enchufe inteligente TAPO P115, integrado con Klipper.</p>
         </div>
+        <a class="project-link" href="https://github.com/joseto1298/klipper-printer-on-off" target="_blank" rel="noopener noreferrer">Ver repo <span aria-hidden="true">→</span></a>
+      </article>
 
-        <aside class="tech-panel" aria-label="Áreas de especialización">
-          <div class="node">
-            <strong>Power Automate & M365</strong>
-            <span>Flujos automatizados, formularios, notificaciones, SharePoint y ecosistema Microsoft 365.</span>
-          </div>
-          <div class="node">
-            <strong>Software & Odoo</strong>
-            <span>Web apps, dashboards, APIs, integraciones y módulos a medida.</span>
-          </div>
-          <div class="node">
-            <strong>PLC & SCADA</strong>
-            <span>Siemens S7, TIA Portal, Omron, RobotStudio, control PID y sistemas industriales.</span>
-          </div>
-          <div class="node">
-            <strong>Klipper & 3D Printing</strong>
-            <span>Macros, plugins, sensores, control de impresoras y ecosistema maker.</span>
-          </div>
-        </aside>
-      </section>
-
-      <section class="container" id="servicios">
-        <div class="section-title">
-          <h2>No desarrollo solo código. Diseño soluciones completas.</h2>
-          <p>
-            La tecnología tiene sentido cuando resuelve un proceso real. Mi
-            trabajo combina análisis, arquitectura técnica, automatización e
-            implementación.
-          </p>
+      <article class="card lab-card" role="listitem" aria-label="Cámara IR para Klipper">
+        <div class="number" aria-label="Experimento 2">02</div>
+        <div>
+          <h3>Cámara IR para Klipper</h3>
+          <p>Control de modo IR para la cámara Creality Nebula: día, noche y auto desde Mainsail o macros G-code.</p>
         </div>
+        <a class="project-link" href="https://github.com/joseto1298/nebula-cam-mode" target="_blank" rel="noopener noreferrer">Ver repo <span aria-hidden="true">→</span></a>
+      </article>
 
-        <div class="grid-4">
-          <article class="card">
-            <h3>Power Automate & M365</h3>
-            <ul>
-              <li>Flujos automatizados</li>
-              <li>Formularios y notificaciones</li>
-              <li>SharePoint y OneDrive</li>
-              <li>Automatización documental</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Software & APIs</h3>
-            <ul>
-              <li>Web apps y dashboards</li>
-              <li>APIs e integraciones</li>
-              <li>Módulos Odoo</li>
-              <li>Scripts Python</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Automatización Industrial</h3>
-            <ul>
-              <li>PLC Siemens & Omron</li>
-              <li>TIA Portal & STEP 7</li>
-              <li>SCADA y WinCC</li>
-              <li>Control PID</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Klipper & 3D Printing</h3>
-            <ul>
-              <li>Macros y plugins</li>
-              <li>Sensores y control</li>
-              <li>Monitoreo en tiempo real</li>
-              <li>Detección de fallos</li>
-            </ul>
-          </article>
+      <article class="card lab-card" role="listitem" aria-label="Detección de fallos con IA">
+        <div class="number" aria-label="Experimento 3">03</div>
+        <div>
+          <h3>Detección de fallos con IA</h3>
+          <p>Detección local de fallos en impresiones 3D usando TensorFlow Lite: spaghetti, blobs, cracks y warping.</p>
         </div>
-      </section>
+        <a class="project-link" href="https://github.com/joseto1298/klipper-print-failure-detection" target="_blank" rel="noopener noreferrer">Ver repo <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </section>
 
-      <section class="container split" id="proyectos">
-        <div class="section-title">
-          <h2>Proyectos.</h2>
-          <p>
-            Soluciones reales con código abierto. Cada proyecto resuelve un
-            problema concreto.
-          </p>
-        </div>
-
-        <div class="card">
-          <article class="project">
-            <span class="tagline">Klipper / 3D Printing</span>
-            <h3>Klipper-PLR-Resume</h3>
-            <p>
-              Sistema completo para la recuperación automática y manual de
-              impresiones 3D interrumpidas en Klipper. Macros de Klipper y
-              script de generación de archivo de recuperación optimizado.
-            </p>
-            <a class="project-link" href="https://github.com/joseto1298/Klipper-PLR-Resume" target="_blank" rel="noopener">Ver en GitHub →</a>
-          </article>
-
-          <article class="project">
-            <span class="tagline">Automatización Industrial</span>
-            <h3>PID Nivel Tanque S7-1500</h3>
-            <p>
-              Control PID de nivel para tanque de agua con PLC Siemens S7-1500,
-              TIA Portal V20 y simulación en FactoryIO. Algoritmo PID_Compact
-              para control robusto.
-            </p>
-            <a class="project-link" href="https://github.com/joseto1298/PID-Nivel-Tanque-S7-1500-FactoryIO" target="_blank" rel="noopener">Ver en GitHub →</a>
-          </article>
-
-          <article class="project">
-            <span class="tagline">Software & Odoo</span>
-            <h3>Integración Spoolman-Odoo</h3>
-            <p>
-              Módulo Odoo que sincroniza el inventario de filamentos de Spoolman
-              con el sistema de gestión de productos, manteniendo datos
-              actualizados entre ambos sistemas.
-            </p>
-            <a class="project-link" href="https://github.com/joseto1298/Integrating-Spoolman-inventory-into-Odoo" target="_blank" rel="noopener">Ver en GitHub →</a>
-          </article>
-
-          <article class="project">
-            <span class="tagline">IoT & Sensores</span>
-            <h3>Klipper Spool Tracker</h3>
-            <p>
-              Mide el filamento que gastas en Klipper vía WebSocket de Moonraker.
-              Persiste en SQLite con checkpoint cada 30s, soporta cambios en
-              medio de una impresión.
-            </p>
-            <a class="project-link" href="https://github.com/joseto1298/klipper_spool_tracker" target="_blank" rel="noopener">Ver en GitHub →</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="container" id="lab">
-        <div class="section-title">
-          <h2>Lab: construir, probar, aprender y compartir.</h2>
-          <p>
-            Experimentos y herramientas del ecosistema Klipper, automatización y
-            software aplicado.
-          </p>
-        </div>
-
-        <div class="lab-grid">
-          <article class="card lab-card">
-            <div class="number">01</div>
-            <div>
-              <h3>Control de impresora remoto</h3>
-              <p>
-                Encendido y apagado de impresora 3D con enchufe inteligente TAPO
-                P115, integrado con Klipper.
-              </p>
-            </div>
-            <a class="project-link" href="https://github.com/joseto1298/klipper-printer-on-off" target="_blank" rel="noopener">Ver repo →</a>
-          </article>
-
-          <article class="card lab-card">
-            <div class="number">02</div>
-            <div>
-              <h3>Cámara IR para Klipper</h3>
-              <p>
-                Control de modo IR para la cámara Creality Nebula: día, noche y
-                auto desde Mainsail o macros G-code.
-              </p>
-            </div>
-            <a class="project-link" href="https://github.com/joseto1298/nebula-cam-mode" target="_blank" rel="noopener">Ver repo →</a>
-          </article>
-
-          <article class="card lab-card">
-            <div class="number">03</div>
-            <div>
-              <h3>Detección de fallos con IA</h3>
-              <p>
-                Detección local de fallos en impresiones 3D usando TensorFlow
-                Lite: spaghetti, blobs, cracks y warping.
-              </p>
-            </div>
-            <a class="project-link" href="https://github.com/joseto1298/klipper-print-failure-detection" target="_blank" rel="noopener">Ver repo →</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="container">
-        <div class="cta" id="contacto">
-          <h2>¿Tienes un proceso que consume demasiado tiempo?</h2>
-          <p>
-            Podemos analizarlo, detectar puntos de automatización y diseñar una
-            solución que combine software, automatización industrial e
-            integración de sistemas.
-          </p>
-          <div class="cta-links">
-            <a
-              href="https://www.linkedin.com/in/-josetomas"
-              class="btn"
-              target="_blank"
-              rel="noopener"
-              >Conectar en LinkedIn</a
-            >
-            <a
-              href="https://github.com/joseto1298"
-              class="btn secondary"
-              target="_blank"
-              rel="noopener"
-              >Ver GitHub</a
-            >
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container">
-        <span>© 2026 José Tomás · Automation & Software Architect</span>
-        <span>
-          <a href="https://github.com/joseto1298" target="_blank" rel="noopener">GitHub</a> ·
-          <a href="https://www.linkedin.com/in/-josetomas" target="_blank" rel="noopener">LinkedIn</a>
-        </span>
+  <section class="container reveal" aria-label="Contacto" id="contacto">
+    <div class="cta">
+      <h2>¿Tienes un proceso que consume demasiado tiempo?</h2>
+      <p>Podemos analizarlo, detectar puntos de automatización y diseñar una solución que combine software, automatización industrial e integración de sistemas.</p>
+      <div class="cta-links">
+        <a href="https://www.linkedin.com/in/-josetomas" class="btn" target="_blank" rel="noopener noreferrer">Conectar en LinkedIn</a>
+        <a href="https://github.com/joseto1298" class="btn secondary" target="_blank" rel="noopener noreferrer">Ver GitHub</a>
       </div>
-    </footer>
+    </div>
+  </section>
+</main>
 
-    <script>
-      const btn = document.getElementById('menuBtn');
-      const menu = document.getElementById('mobileMenu');
-      btn.addEventListener('click', () => {
-        btn.classList.toggle('active');
-        menu.classList.toggle('open');
-      });
-      menu.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          btn.classList.remove('active');
-          menu.classList.remove('open');
-        });
-      });
-    </script>
-  </body>
+<footer role="contentinfo">
+  <div class="container">
+    <span>© 2026 José Tomás · Automation & Software Architect</span>
+    <span>
+      <a href="https://github.com/joseto1298" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/-josetomas" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('mobileMenu');
+  btn.addEventListener('click', () => {
+    const open = btn.classList.toggle('active');
+    menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      btn.classList.remove('active');
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) {
+      btn.classList.remove('active');
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  /* Scroll reveal */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
 </html>
